@@ -20,11 +20,11 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
-    'gatsby-plugin-offline',
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: "GTM-N6GN5KJ",
+        // id: "GTM-N6GN5KJ",
+        id: "GTM-583PTB2J",
 
         // Include GTM in development.
         //
