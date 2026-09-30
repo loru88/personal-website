@@ -63,6 +63,17 @@ module.exports = {
 
 Additionally, it also has [path-prefix](https://www.gatsbyjs.org/docs/path-prefix/) value set for gatsby config in `config.js`. Change `pathPrefix` to relevant path if your gatsby site is hosted on subpath of a domain, `https://theanubhav.com/somePath/`. If you are hosting it as root site, i.e, `https://theanubhav.com/`, remove the pathPrefix configuration.
 
+### Production deployment
+
+The GitHub Actions workflow in `.github/workflows/deploy.yml` builds this site and publishes it over explicit FTPS to the domain's document root. It runs when a `v*.*.*` tag is pushed or when started manually from the Actions tab. The root deployment preserves the existing `localredact` directory, which serves the LocalRedact app at `/localredact`.
+
+Configure these repository variables and secrets in GitHub:
+
+- Variables: `FTP_HOST`, `FTP_PORT`, and `FTP_REMOTE_ROOT` (the hosting account's domain document root, not a `localredact` subdirectory).
+- Secrets: `FTP_USERNAME` and `FTP_PASSWORD`.
+
+The offline plugin is disabled because its site-wide service worker would also claim requests under `/localredact`.
+
 ### Checkout other similar starters
 
 - [gatsby-starter-casual](https://github.com/anubhavsrivastava/gatsby-starter-casual)
