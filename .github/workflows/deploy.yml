@@ -73,4 +73,4 @@ jobs:
           test -n "$FTP_USERNAME"
           test -n "$FTP_PASSWORD"
 
-          lftp -c "debug -t 9; set net:timeout 30; set net:max-retries 1; set ftp:ssl-force true; set ftp:ssl-protect-data true; set ftp:passive-mode true; set ssl:verify-certificate false; open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"ftp://$FTP_HOST:$FTP_PORT\"; mirror --reverse --delete --delete-first --verbose=3 --no-perms --no-umask --exclude-glob localredact --exclude-glob localredact/** ./public/ $FTP_REMOTE_ROOT"
+          lftp -c "set cmd:fail-exit yes; debug -t 9; set net:timeout 30; set net:max-retries 1; set ftp:ssl-force true; set ftp:ssl-protect-data true; set ftp:passive-mode true; set ssl:verify-certificate false; open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"ftp://$FTP_HOST:$FTP_PORT\"; mirror --reverse --delete --delete-first --verbose=3 --no-perms --no-umask --exclude-glob localredact --exclude-glob localredact/** ./public/ $FTP_REMOTE_ROOT"
