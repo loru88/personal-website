@@ -2,6 +2,16 @@ name: Test FTP publish
 
 on:
   workflow_dispatch:
+    inputs:
+      ftp_host:
+        description: FTP host to test
+        required: true
+        type: choice
+        options:
+          - repository secret
+          - ftp.lorenzoadinolfi.it
+          - 217.64.195.245
+        default: repository secret
 
 permissions:
   contents: read
@@ -25,7 +35,7 @@ jobs:
 
       - name: Upload probe over explicit FTPS
         env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_HOST: ${{ inputs.ftp_host == 'repository secret' && secrets.FTP_HOST || inputs.ftp_host }}
           FTP_PORT: ${{ secrets.FTP_PORT }}
           FTP_REMOTE_ROOT: ${{ vars.FTP_REMOTE_ROOT }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
