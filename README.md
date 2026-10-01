@@ -69,8 +69,8 @@ The GitHub Actions workflow in `.github/workflows/deploy.yml` builds this site a
 
 Configure these repository variables and secrets in GitHub:
 
-- Variables: `FTP_HOST`, `FTP_PORT`, and `FTP_REMOTE_ROOT` (the hosting account's domain document root, not a `localredact` subdirectory).
-- Secrets: `FTP_USERNAME` and `FTP_PASSWORD`.
+- Variable: `FTP_REMOTE_ROOT` (set to `/`, the hosting account's domain document root).
+- Secrets: `FTP_HOST`, `FTP_PORT`, `FTP_USERNAME`, and `FTP_PASSWORD`.
 
 The offline plugin is disabled because its site-wide service worker would also claim requests under `/localredact`.
 

@@ -60,8 +60,8 @@ jobs:
 
       - name: Publish site at domain root over explicit FTPS
         env:
-          FTP_HOST: ${{ vars.FTP_HOST }}
-          FTP_PORT: ${{ vars.FTP_PORT }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
           FTP_REMOTE_ROOT: ${{ vars.FTP_REMOTE_ROOT }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
