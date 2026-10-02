@@ -17,6 +17,11 @@ module.exports = {
         theme_color: config.manifestThemeColor,
         display: config.manifestDisplay,
         icon: config.manifestIcon, // This path is relative to the root of the site.
+        icons: [48, 72, 96, 144, 192, 256, 384, 512].map((size) => ({
+          src: `favicons/icon-${size}x${size}.png`,
+          sizes: `${size}x${size}`,
+          type: 'image/png',
+        })),
       },
     },
     'gatsby-plugin-sass',
