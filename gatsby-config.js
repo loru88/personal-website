@@ -2,11 +2,11 @@ const config = require('./config');
 
 module.exports = {
   pathPrefix: config.pathPrefix,
+  trailingSlash: 'always',
   siteMetadata: {
     title: config.siteTitle,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

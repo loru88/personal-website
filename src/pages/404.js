@@ -1,5 +1,8 @@
 import React from 'react';
 import Layout from '../components/layout';
+import SiteHead from '../components/SiteHead';
+
+export const Head = () => <SiteHead />;
 
 const NotFoundPage = () => (
   <Layout darkText>
